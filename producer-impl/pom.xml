@@ -16,9 +16,15 @@
 			<artifactId>producer-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>com.lightbend.lagom</groupId>
 			<artifactId>lagom-javadsl-server_2.11</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-clients</artifactId>
 		</dependency>
 	</dependencies>
 </project>

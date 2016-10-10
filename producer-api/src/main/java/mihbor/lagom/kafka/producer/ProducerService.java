@@ -13,12 +13,15 @@ import akka.Done;
 
 public interface ProducerService extends Service {
 	
-	ServiceCall<Object, Done> produceTo(String topic);
+	ServiceCall<Object, Done> produceToTopic(String topic);
+	
+	ServiceCall<Object, Done> produceToTopicWithKey(String topic, Object key);
 	
 	@Override
 	default Descriptor descriptor() {
 		return named("producer").withCalls(
-			restCall(POST, "/api/produceTo/:topic", this::produceTo)
+			restCall(POST, "/api/produce/:topic", this::produceToTopic),
+			restCall(PUT, "/api/produce/:topic/:key", this::produceToTopicWithKey)
 		);
 	}
 }
